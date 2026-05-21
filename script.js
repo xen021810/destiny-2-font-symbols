@@ -834,6 +834,12 @@
     style.innerHTML = `
         @font-face { font-family: 'DIMFont'; src: url('fonts/DestinySymbols.otf'); }
         @font-face { font-family: 'CustomFont'; src: url('fonts/destinylogo.ttf'); }
+        
+        /* FIX: Force the main grid and search bar to use the new fonts! */
+        figure, #symbolBox, input {
+            font-family: 'CustomFont', 'DIMFont', 'Destiny Symbols PC', 'Destiny Symbols PS4', 'Destiny Symbols Common', sans-serif !important;
+        }
+
         .new-symbol-box {
             background: rgba(255, 255, 255, 0.05); color: white; display: flex; 
             align-items: center; justify-content: center; padding: 15px; 
