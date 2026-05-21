@@ -833,7 +833,7 @@
     const style = document.createElement('style');
     style.innerHTML = `
         @font-face { font-family: 'DIMFont'; src: url('fonts/DestinySymbols.otf'); }
-        @font-face { font-family: 'CustomFont'; src: url('fonts/icomoon.ttf'); }
+        @font-face { font-family: 'CustomFont'; src: url('fonts/destinylogo.ttf'); }
         .new-symbol-box {
             background: rgba(255, 255, 255, 0.05); color: white; display: flex; 
             align-items: center; justify-content: center; padding: 15px; 
