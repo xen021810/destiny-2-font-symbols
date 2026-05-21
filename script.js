@@ -828,8 +828,8 @@
         }
     });
     document.body.appendChild(fragment);
-// --- CUSTOM FONT INJECTOR ---
-    // 1. Tell the browser CSS how to display your two new fonts
+    
+    // --- CUSTOM FONT INJECTOR ---
     const style = document.createElement('style');
     style.innerHTML = `
         @font-face { font-family: 'DIMFont'; src: url('fonts/DestinySymbols.otf'); }
@@ -843,29 +843,24 @@
     `;
     document.head.appendChild(style);
 
-    // 2. Wait a second for the main grid to build, then force our symbols in
     setTimeout(() => {
         const mainContainer = document.querySelector('main');
         if (!mainContainer) return; 
-        
-        // Grab the 4th and 5th fonts from your list (Arrays start at 0, so 3 and 4)
+
         let newFonts = [Fonts[3], Fonts[4]];
         let fontNames = ['DIMFont', 'CustomFont'];
         
         newFonts.forEach((customFont, index) => {
             if (!customFont) return;
-            
-            // Add a clean section header
+
             let header = document.createElement('h1');
             header.innerText = index === 0 ? "DIM EXTENDED SYMBOLS" : "CUSTOM ICOMOON SYMBOLS";
             header.style.cssText = "grid-column: 1 / -1; color: #cda752; text-align: center; margin-top: 40px; font-size: 24px;";
             mainContainer.appendChild(header);
 
-            // Loop through the font file and pull out every symbol
             for (let key in customFont.glyphs.glyphs) {
                 let glyph = customFont.glyphs.glyphs[key];
-                
-                // If it's a real character and not just a blank space
+
                 if (glyph.unicode && glyph.name !== '.notdef' && glyph.name !== 'space') {
                     let char = String.fromCharCode(glyph.unicode);
                     
@@ -873,10 +868,9 @@
                     box.className = 'new-symbol-box';
                     box.innerHTML = `<span style="font-family: '${fontNames[index]}';">${char}</span>`;
                     
-                    // Make it copy to clipboard when clicked
                     box.onclick = () => {
                         navigator.clipboard.writeText(char);
-                        box.style.background = "#cda752"; // flash gold
+                        box.style.background = "#cda752";
                         setTimeout(() => box.style.background = "rgba(255, 255, 255, 0.05)", 200);
                     };
                     
