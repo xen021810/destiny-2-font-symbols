@@ -3,7 +3,8 @@
         await opentype.load("fonts/destiny_symbols_common.otf"),
         await opentype.load("fonts/destiny_symbols_pc.otf"),
         await opentype.load("fonts/destiny_symbols_ps4.otf"),
-        await opentype.load("fonts/DestinySymbols.otf")
+        await opentype.load("fonts/DestinySymbols.otf"),
+        await opentype.load("fonts/destinylogo.ttf")
     ];
     const Colors = Object.freeze({
         VOID: "#B283CC",
